@@ -53,6 +53,7 @@ function countdownTimer() {
       clearInterval(timerId);
       Notify.success('Time is out!');
       updateClockface(time);
+      refs.input.disabled = false;
     }
     updateClockface(time);
   }, 1000);
