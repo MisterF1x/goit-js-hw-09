@@ -15,13 +15,13 @@ function onSubmitForm(e) {
   let step = Number(refs.inputStep.value);
   let delay = Number(refs.inputDelay.value);
 
-  for (let i = 0; i < amount; i += 1) {
+  for (let i = 1; i <= amount; i += 1) {
     createPromise(amount, delay)
       .then(({ position, delay }) => {
-        Notify.success(`✅ Fulfilled promise ${position} in ${delay} ms`);
+        Notify.success(`✅ Fulfilled promise ${i} in ${delay} ms`);
       })
       .catch(({ position, delay }) => {
-        Notify.failure(`❌ Rejected promise ${position} in ${delay} ms`);
+        Notify.failure(`❌ Rejected promise ${i} in ${delay} ms`);
       });
     delay += step;
   }
